@@ -16,7 +16,7 @@ func String() string {
 	extraInfo := ""
 	for _, v := range []string{"buildinfo.yaml", "buildinfo.json", "buildinfo.txt", "buildinfo"} {
 		_, err := os.Stat(v)
-		if err != nil {
+		if err == nil {
 			bs, err := os.ReadFile(v)
 			if err != nil {
 				extraInfo = string(bs)
