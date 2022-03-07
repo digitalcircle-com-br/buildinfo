@@ -25,12 +25,25 @@ func String() string {
 		}
 	}
 
-	return fmt.Sprintf(
-		`%s: 
+	if extraInfo != "" {
+		return fmt.Sprintf(
+			`%s: 
   - Ver: %s
   - Built at: %s
   - Built in Host: %s
   - Built by: %s
-  %s`, Product, Ver, BuildDate, BuildHost, BuildUser, extraInfo)
+
+%s
+===`,
+			Product, Ver, BuildDate, BuildHost, BuildUser, extraInfo)
+	} else {
+		return fmt.Sprintf(
+			`%s: 
+	  - Ver: %s
+	  - Built at: %s
+	  - Built in Host: %s
+	  - Built by: %s`,
+			Product, Ver, BuildDate, BuildHost, BuildUser)
+	}
 
 }
