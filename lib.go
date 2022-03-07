@@ -18,7 +18,7 @@ func String() string {
 		_, err := os.Stat(v)
 		if err == nil {
 			bs, err := os.ReadFile(v)
-			if err != nil {
+			if err == nil {
 				extraInfo = string(bs)
 				break
 			}
